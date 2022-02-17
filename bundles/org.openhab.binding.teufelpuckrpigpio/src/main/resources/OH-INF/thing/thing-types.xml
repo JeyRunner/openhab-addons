@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="teufelpuckrpigpio"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<!-- Puck Thing Type -->
+	<thing-type id="teufelPuck">
+		<!-- Comment this in for Things which need a Bridge to function.
+			<supported-bridge-type-refs>
+			<bridge-type-ref id="TeufelPuckRpiGpioBridge" />
+			</supported-bridge-type-refs>
+		-->
+
+		<label>Teufel Puck RpiGpio Binding Thing</label>
+		<description>Control your Teufel audio devices via the hacked puck remote</description>
+
+		<channels>
+			<channel id="channel1" typeId="sample-channel"/>
+		</channels>
+
+		<config-description>
+			<parameter name="gpioPinPower" type="integer" required="true" min="1" max="27">
+				<label>Power GPIO </label>
+				<description>Raspberry pi GPIO pin for controlling the power (on/off)</description>
+				<default>2</default>
+			</parameter>
+
+			<parameter name="gpioPinAudioSource" type="integer" required="true" min="1" max="27">
+				<label>Audio Source GPIO </label>
+				<description>Raspberry pi GPIO pin for controlling the audio source</description>
+				<default>3</default>
+			</parameter>
+
+			<parameter name="gpioPinVolumeUp" type="integer" required="true" min="1" max="27">
+				<label>Volume up GPIO </label>
+				<description>Raspberry pi GPIO pin for increasing the volume</description>
+				<default>4</default>
+			</parameter>
+
+			<parameter name="gpioPinVolumeDown" type="integer" required="true" min="1" max="27">
+				<label>Volume down GPIO </label>
+				<description>Raspberry pi GPIO pin for decreasing the volume</description>
+				<default>5</default>
+			</parameter>
+
+		</config-description>
+	</thing-type>
+
+	<!-- Sample Channel Type -->
+	<channel-type id="sample-channel">
+		<item-type>Number:Temperature</item-type>
+		<label>Example Temperature</label><!-- Use uppercase words, except prepositions. 2-3 words, max 25 chars -->
+		<description>Sample channel for TeufelPuckRpiGpio Binding</description>
+	</channel-type>
+</thing:thing-descriptions>
